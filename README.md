@@ -17,15 +17,11 @@ Inspired by Sparkbox's awesome article on [semantic commit messages](http://sees
 ``` git clone https://github.com/fteem/git-semantic-messages ~/.git-semantic-messages ```
 
 2. Add the folder to your $PATH.
+  * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
+  * if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line: <br/>  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
 
-  - if using Bash, open ```~/.bashrc``` with your favourite editor and add this line:
-  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
-
-  - if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line:
-  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
-
-3. ...
-4. Profit.
+3. Source the changes in bashrc/zshrc: ```source ~/.bashrc``` or ```source ~/.zshrc```
+4. Commit away!
 
 ## Usage
 ```git tidy "clean up static images"``` turns into ```git commit -m "tidy: clean up static images```
