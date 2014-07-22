@@ -18,11 +18,15 @@ Inspired by Sparkbox's awesome article on [semantic commit messages](http://sees
 
 2. Add the folder to your $PATH.
 
-- if using Bash, open ```~/.bashrc``` with your favourite editor and add this line:
-``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
+  - if using Bash, open ```~/.bashrc``` with your favourite editor and add this line:
+  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
 
-- if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line:
-``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
+  - if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line:
+  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
 
 3. ...
 4. Profit.
+
+## Usage
+```git tidy "clean up static images"``` turns into ```git commit -m "tidy: clean up static images```
+
