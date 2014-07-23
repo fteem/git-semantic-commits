@@ -29,3 +29,6 @@ New command -> what it does:
 * ```git refactor "commit-message-here"``` -> ```git commit -m 'refactor: commit-message-here'```
 * ```git style "commit-message-here"``` -> ```git commit -m 'style: commit-message-here'```
 * ```git test "commit-message-here"``` -> ```git commit -m 'test: commit-message-here'```
+
+## How to contribute
+Open a pull request/issue or fork this repo and submit your changes via a pull request.
