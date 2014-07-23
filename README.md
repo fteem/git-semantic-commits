@@ -23,7 +23,7 @@ These are **very simple** custom git commands that enforce the git user to write
   * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
   * if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line: <br/>  ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
 
-3. Source the changes in bashrc/zshrc: ```source ~/.bashrc``` or ```source ~/.zshrc```
+3. Save the file and source the changes in bashrc/zshrc: ```source ~/.bashrc``` or ```source ~/.zshrc```
 4. Commit away!
 
 ## Usage
