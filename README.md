@@ -5,15 +5,6 @@ Inspired by Sparkbox's awesome article on [semantic commit messages](http://sees
 ## What is this?
 These are **very simple** custom git commands that enforce the git user to write better git commit messages. If still confused, read the article above.
 
-## Available commands:
-* ```git feat "commit-message-here"```
-* ```git docs "commit-message-here"```
-* ```git chore "commit-message-here"```
-* ```git fix "commit-message-here"```
-* ```git refactor "commit-message-here"```
-* ```git style "commit-message-here"```
-* ```git test "commit-message-here"```
-
 ## Installation:
 
 1. Clone this repo, prefferably in your $HOME directory.
@@ -27,5 +18,14 @@ These are **very simple** custom git commands that enforce the git user to write
 4. Commit away!
 
 ## Usage
-```git tidy "clean up static images"``` turns into ```git commit -m "tidy: clean up static images"```
 
+There are 7 new Git commands now.
+
+New command -> what it does:
+* ```git feat "commit-message-here"``` -> ```git commit -m 'feat: commit-message-here```
+* ```git docs "commit-message-here"``` -> ```git commit -m 'docs: commit-message-here```
+* ```git chore "commit-message-here"``` -> ```git commit -m 'chore: commit-message-here```
+* ```git fix "commit-message-here"``` -> ```git commit -m 'fix: commit-message-here```
+* ```git refactor "commit-message-here"``` -> ```git commit -m 'refactor: commit-message-here```
+* ```git style "commit-message-here"``` -> ```git commit -m 'style: commit-message-here```
+* ```git test "commit-message-here"``` -> ```git commit -m 'test: commit-message-here```
