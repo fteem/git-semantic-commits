@@ -30,5 +30,10 @@ New command -> what it does:
 * ```git style "commit-message-here"``` -> ```git commit -m 'style: commit-message-here'```
 * ```git test "commit-message-here"``` -> ```git commit -m 'test: commit-message-here'```
 
+If you would still like to use your text editor for your commit messages
+you can omit the message, and do your commit message in your editor.
+
+* ```git feat``` -> ```git commit -m 'feat: ' -e````
+
 ## How to contribute
 Open a pull request/issue or fork this repo and submit your changes via a pull request.
