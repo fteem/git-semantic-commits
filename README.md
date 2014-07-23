@@ -1,4 +1,4 @@
-# Semantic commit messages
+# Semantic Git commit messages
 
 Inspired by Sparkbox's awesome article on [semantic commit messages](http://seesparkbox.com/foundry/semantic_commit_messages).
 
@@ -17,11 +17,11 @@ These are **very simple** custom git commands that enforce the git user to write
 ## Installation:
 
 1. Clone this repo, prefferably in your $HOME directory.
-``` git clone https://github.com/fteem/git-semantic-messages ~/.git-semantic-messages ```
+``` git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits ```
 
 2. Add the folder to your $PATH.
-  * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
-  * if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line: <br/>  ``` export PATH=$PATH:$HOME/.git-semantic-messages:$PATH ```
+  * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
+  * if using Zsh, open ```~/.zshrc``` with your favourite editor and add this line: <br/>  ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
 
 3. Source the changes in bashrc/zshrc: ```source ~/.bashrc``` or ```source ~/.zshrc```
 4. Commit away!
