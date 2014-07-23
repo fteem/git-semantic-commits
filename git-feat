@@ -1,7 +1,7 @@
 #!/bin/bash
-if [ -z $1 ]
+if [ -z "$1" ]
   then
     git commit -m 'feat: ' -e
   else
-    git commit -m 'feat: ' -m $1
+    git commit -m "feat: $1"
 fi
