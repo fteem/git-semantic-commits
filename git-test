@@ -1,3 +1,7 @@
 #!/bin/bash
-
-git commit -m "test: $1"
+if [ -z $1 ]
+  then
+    git commit -m 'test: ' -e
+  else
+    git commit -m 'test: ' -m $1
+fi
