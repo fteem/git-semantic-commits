@@ -8,8 +8,7 @@ These are **very simple** custom git commands that enforce the git user to write
 ## Installation:
 
 1. Clone this repo, prefferably in your $HOME directory.
-``` git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits ```
-Tip: If on Cygwin, open a bash and type 'echo $USERPROFILE'. That will give you the location of the $HOME directory.
+``` git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits ``` <br/> Tip: If on Cygwin, open a bash and type 'echo $USERPROFILE'. That will give you the location of the $HOME directory.
 
 2. Add the folder to your $PATH.
   * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
