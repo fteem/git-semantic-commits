@@ -38,5 +38,9 @@ you can omit the message, and do your commit message in your editor.
 
 * ```git feat``` -> ```git commit -m 'feat: ' -e```
 
+You can add a changelog message to integrate in [conventional-changelog](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
+
+* ```git feat log-here commit-message-here``` -> ```git commit -m 'feat(log-here): commit-message-here'```
+
 ## How to contribute
 Open a pull request/issue or fork this repo and submit your changes via a pull request.
