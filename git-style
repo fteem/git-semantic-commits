@@ -3,5 +3,10 @@ if [ -z "$1" ]
   then
     git commit -m 'style: ' -e
   else
-    git commit -m "style: $1"
+    if [ -z "$2" ]
+      then
+        git commit -m "style: $1"
+      else
+        git commit -m "style($1): $2"
+    fi
 fi

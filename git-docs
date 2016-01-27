@@ -3,5 +3,10 @@ if [ -z "$1" ]
   then
     git commit -m 'docs: ' -e
   else
-    git commit -m "docs: $1"
+    if [ -z "$2" ]
+      then
+        git commit -m "docs: $1"
+      else
+        git commit -m "docs($1): $2"
+    fi
 fi

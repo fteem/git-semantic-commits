@@ -3,5 +3,10 @@ if [ -z "$1" ]
   then
     git commit -m 'test: ' -e
   else
-    git commit -m "test: $1"
+    if [ -z "$2" ]
+      then
+        git commit -m "test: $1"
+      else
+        git commit -m "test($1): $2"
+    fi
 fi

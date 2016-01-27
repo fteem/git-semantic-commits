@@ -3,5 +3,10 @@ if [ -z "$1" ]
   then
     git commit -m 'localize: ' -e
   else
-    git commit -m "localize: $1"
+    if [ -z "$2" ]
+      then
+        git commit -m "localize: $1"
+      else
+        git commit -m "localize($1): $2"
+    fi
 fi
