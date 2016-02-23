@@ -8,7 +8,7 @@ These are **very simple** custom git commands that enforce the git user to write
 ## Installation:
 
 1. Clone this repo, prefferably in your $HOME directory.
-``` git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits ```
+``` git clone https://github.com/JacoboSegovia/git-semantic-commits.git ~/.git-semantic-commits ```
 
 2. Add the folder to your $PATH.
   * if using Bash, open ```~/.bashrc``` with your favourite editor and add this line: <br/> ``` export PATH=$PATH:$HOME/.git-semantic-commits:$PATH ```
@@ -40,7 +40,7 @@ you can omit the message, and do your commit message in your editor.
 
 You can add a changelog message to integrate in [conventional-changelog](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
 
-* ```git feat log-here commit-message-here``` -> ```git commit -m 'feat(log-here): commit-message-here'```
+* ```git feat "log-message-here" "commit-message-here"``` -> ```git commit -m 'feat(log-message-here): commit-message-here'```
 
 ## How to contribute
 Open a pull request/issue or fork this repo and submit your changes via a pull request.
