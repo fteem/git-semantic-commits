@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-docs {
+  if [ -z "$1" ]
+    then
+      git commit -m 'docs: ' -e
+    else
+      git commit -m "docs: $1"
+  fi
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-feat {
+  if [ -z "$1" ]
+    then
+      git commit -m 'feat: ' -e
+    else
+      git commit -m "feat: $1"
+  fi
+}

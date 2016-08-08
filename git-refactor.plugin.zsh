@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-refactor {
+  if [ -z "$1" ]
+    then
+      git commit -m 'refactor: ' -e
+    else
+      git commit -m "refactor: $1"
+  fi
+}

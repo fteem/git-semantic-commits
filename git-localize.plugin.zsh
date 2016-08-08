@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-localize {
+  if [ -z "$1" ]
+    then
+      git commit -m 'localize: ' -e
+    else
+      git commit -m "localize: $1"
+  fi
+}

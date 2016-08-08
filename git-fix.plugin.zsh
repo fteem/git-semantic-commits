@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-fix {
+  if [ -z "$1" ]
+    then
+      git commit -m 'fix: ' -e
+    else
+      git commit -m "fix: $1"
+  fi
+}
