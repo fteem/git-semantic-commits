@@ -1,3 +1,5 @@
 #!/bin/bash
 0=${(%):-%N}
-source ${0:A:h}/scripts/*
+for f in ${0:A:h}/scripts/*; do
+  source $f;
+done
