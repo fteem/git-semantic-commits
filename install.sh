@@ -15,8 +15,6 @@ if [[ -n $1 ]] && [[ $1 == '--scripts' ]]; then
       echo $PATH_LINE >> $BASHRC
       source $BASHRC
     fi
-  else
-    echo 'NOPE'
   fi
 
   if [ -f $ZSHRC ]; then
