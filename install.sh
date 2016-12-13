@@ -1,77 +1,75 @@
 #!/bin/sh
+CWD=`pwd`
+
+# Register semantic commits scripts execution path
+#
+# $1 — shell configuraton file path
+function register_path {
+  PATH_LINE='export PATH=$PATH:'$CWD':$PATH'
+
+  if [ -f $1 ]; then
+    if ! grep -Fxq "$PATH_LINE" $1; then
+      echo
+      echo "📝  Adding path to $1"
+      echo $PATH_LINE >> $1
+      source $1
+    fi
+  fi
+}
+
+# Register semantic commits git aliases
+#
+# $1 — git alias and semantic message prefix
+# [$2] — (optional) custom semantic message prefix
+function register_git_alias {
+  if ! git config --global --get-all alias.$1 &>/dev/null; then
+    if [[ -z $2 ]]; then
+      git config --global alias.$1  '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "'$1': " -e; else git commit -m "'$1': $1"; fi }; f'
+    else
+      git config --global alias.$1  '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "'$2': " -e; else git commit -m "'$2': $1"; fi }; f'
+    fi
+  fi
+}
+
+# Check if command was finished successfully
+#
+# $1 — any shell command
+function command_succes {
+  command $1 >/dev/null 2>&1 && return 0 # true
+  return 1 # false
+}
 
 if [[ -n $1 ]] && [[ $1 == '--scripts' ]]; then
   echo '💡  Installing scripts…'
 
-  PATH_LINE='export PATH=$PATH:$HOME/.git-semantic-commits:$PATH'
-  BASHRC=~/.bashrc
-  ZSHRC=~/.zshrc
+  register_path ~/.bashrc
+  register_path ~/.zshrc
 
-  if [ -f $BASHRC ]; then
-    if ! grep -Fxq "$PATH_LINE" $BASHRC
-    then
-      echo
-      echo "📝  Adding path to $BASHRC"
-      echo $PATH_LINE >> $BASHRC
-      source $BASHRC
-    fi
-  fi
-
-  if [ -f $ZSHRC ]; then
-    if ! grep -Fxq "$PATH_LINE" $ZSHRC
-    then
-      echo
-      echo "📝  Adding path to $ZSHRC"
-      echo $PATH_LINE >> $ZSHRC
-      source $ZSHRC
-    fi
+  # git-extras chore/refactor compatibility (https://github.com/tj/git-extras)
+  # Docs: https://github.com/tj/git-extras/blob/master/Commands.md#git-featurerefactorbugchore
+  if command_succes 'git extras'; then
+    extra_aliases=( 'ch' 'rf' )
+    for extra_alias in "${extra_aliases[@]}"; do
+      mv $CWD/.git-$extra_alias $CWD/git-$extra_alias
+    done
   fi
 else
   echo '💡  Installing git aliases…'
 
-  # git-extras/chore compatibility https://goo.gl/oZUN3V
-  if ! git config --global --get-all alias.ch &>/dev/null; then
-    git config --global alias.ch '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "chore: " -e; else git commit -m "chore: $1"; fi }; f'
-  fi
+  semantic_aliases=( 'chore' 'docs' 'feat' 'fix' 'localize' 'chore' 'refactor' 'style' 'test' )
 
-  if ! git config --global --get-all alias.chore &>/dev/null; then
-    git config --global alias.chore '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "chore: " -e; else git commit -m "chore: $1"; fi }; f'
-  fi
+  for semantic_alias in "${semantic_aliases[@]}"; do
+    register_git_alias $semantic_alias
+  done
 
-  if ! git config --global --get-all alias.docs &>/dev/null; then
-    git config --global alias.docs '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "docs: " -e; else git commit -m "docs: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.feat &>/dev/null; then
-    git config --global alias.feat '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "feat: " -e; else git commit -m "feat: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.fix &>/dev/null; then
-    git config --global alias.fix '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "fix: " -e; else git commit -m "fix: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.localize &>/dev/null; then
-    git config --global alias.localize '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "localize: " -e; else git commit -m "localize: $1"; fi }; f'
-  fi
-
-  # git-extras/refactor compatibility https://goo.gl/FIvSyo
-  if ! git config --global --get-all alias.rf &>/dev/null; then
-    git config --global alias.rf '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "refactor: " -e; else git commit -m "refactor: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.refactor &>/dev/null; then
-    git config --global alias.refactor '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "refactor: " -e; else git commit -m "refactor: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.style &>/dev/null; then
-    git config --global alias.style '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "style: " -e; else git commit -m "style: $1"; fi }; f'
-  fi
-
-  if ! git config --global --get-all alias.test &>/dev/null; then
-    git config --global alias.test '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "test: " -e; else git commit -m "test: $1"; fi }; f'
+  # git-extras chore/refactor compatibility (https://github.com/tj/git-extras)
+  # Docs: https://github.com/tj/git-extras/blob/master/Commands.md#git-featurerefactorbugchore
+  if command_succes 'git extras'; then
+    register_git_alias 'ch' 'chore'
+    register_git_alias 'rf' 'refactor'
   fi
 fi
 
 echo
 echo '✅  Done! Now you can use semantic commits.'
-echo 'ℹ️  See: https://git.io/v1luX for more information'
+echo 'ℹ️  See: https://github.com/fteem/git-semantic-commits for more information.'
