@@ -7,7 +7,7 @@ These are **very simple** custom git commands that enforce the git user to write
 
 ## Installation:
 
-1. Clone this repo, prefferably in your $HOME directory. ```git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits```
+1. Clone this repo, preferably in your $HOME directory. ```git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits```
 
   Tip: If you're using Cygwin, open it and type 'echo $USERPROFILE'. This will show you the location of the $HOME directory.
 
