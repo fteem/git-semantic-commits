@@ -10,7 +10,7 @@ function register_path {
   if [ -f $1 ]; then
     if ! grep -Fxq "$PATH_LINE" $1; then
       echo
-      echo "📝  Adding path to $1"
+      echo "Adding path to $1"
       echo $PATH_LINE >> $1
       source $1
     fi
@@ -40,7 +40,7 @@ function command_succes {
 }
 
 if [[ -n $1 ]] && [[ $1 == '--scripts' ]]; then
-  echo '💡  Installing scripts…'
+  echo 'Installing scripts…'
 
   register_path ~/.bashrc
   register_path ~/.zshrc
@@ -54,7 +54,7 @@ if [[ -n $1 ]] && [[ $1 == '--scripts' ]]; then
     done
   fi
 else
-  echo '💡  Installing git aliases…'
+  echo 'Installing git aliases…'
 
   semantic_aliases=( 'chore' 'docs' 'feat' 'fix' 'localize' 'chore' 'refactor' 'style' 'test' )
 
@@ -71,5 +71,5 @@ else
 fi
 
 echo
-echo '✅  Done! Now you can use semantic commits.'
-echo 'ℹ️  See: https://github.com/fteem/git-semantic-commits for more information.'
+echo 'Done! Now you can use semantic commits.'
+echo 'See: https://github.com/fteem/git-semantic-commits for more information.'
