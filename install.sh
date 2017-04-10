@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 CWD=`pwd`
 
 # Register semantic commits scripts execution path
