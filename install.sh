@@ -24,9 +24,10 @@ function register_path {
 function register_git_alias {
   if ! git config --global --get-all alias.$1 &>/dev/null; then
     if [[ -z $2 ]]; then
-      git config --global alias.$1  '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "'$1': " -e; else git commit -m "'$1': $1"; fi }; f'
+      git config --global alias.$1 '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [ -z "$1" ]; then git commit -m "'$1': " -e; elif [ "$1" == "-s" ]; then git commit -m "'$1'(${2}): ${@:3}"; else git commit -m "'$1': ${@}"; fi }; f'
+
     else
-      git config --global alias.$1  '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [[ -z $1 ]]; then git commit -m "'$2': " -e; else git commit -m "'$2': $1"; fi }; f'
+      git config --global alias.$1 '!f() { [[ -z "$GIT_PREFIX" ]] || cd "$GIT_PREFIX" && if [ -z "$1" ]; then git commit -m "'$2': " -e; elif [ "$1" == "-s" ]; then git commit -m "'$2'(${2}): ${@:3}"; else git commit -m "'$2': ${@}"; fi }; f'
     fi
   fi
 }
