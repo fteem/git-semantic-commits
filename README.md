@@ -7,15 +7,24 @@ These are **very simple** custom git commands that enforce the git user to write
 
 ## Installation:
 
-1. Clone this repo, preferably in your $HOME directory. ```git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits```
+1. Clone this repo, preferably in your `$HOME` directory. 
+```
+git clone https://github.com/fteem/git-semantic-commits ~/.git-semantic-commits
+```
 
-  Tip: If you're using Cygwin, open it and type 'echo $USERPROFILE'. This will show you the location of the $HOME directory.
+> Tip: If you're using Cygwin, open it and type `echo $USERPROFILE`. This will show you the location of the `$HOME` directory.
 
 2. Install it as a set of bash scripts or git aliases:
-  * bash scripts: ```cd ~/.git-semantic-commits && ./install.sh --scripts```
-  * git aliases ```cd ~/.git-semantic-commits && ./install.sh```
+  * bash scripts 
+  ```
+  cd ~/.git-semantic-commits && ./install.sh --scripts
+  ```
+  * git aliases 
+  ```
+  cd ~/.git-semantic-commits && ./install.sh
+  ```
 
-  Tip: Installation script is idempotent and could be harmlessly executed multiple times. It adds bash scripts to the PATH in your `~/.bashrc` or `~/.zshrc` files or adds git aliases to the `~/.gitconfig` file respectively (without any duplication).
+> Tip: Installation script is idempotent and could be harmlessly executed multiple times. It adds bash scripts to the PATH in your `~/.bashrc` or `~/.zshrc` files or adds git aliases to the `~/.gitconfig` file respectively (without any duplication).
 
 3. Commit away!
 
