@@ -48,7 +48,7 @@ Aliases for those who use [git-extras](https://github.com/tj/git-extras) (will b
 * ```git rf "commit message here"``` -> ```git commit -m 'refactor: commit message here'```
 * ```git ch "commit message here"``` -> ```git commit -m 'chore: commit message here'```
 
-## (Manual) Uninstall
+## Uninstallation
 
 You can manually uninstall `git-semantic-commits` by:
 * Going to `~/.gitconfig` and removing the added aliases.
