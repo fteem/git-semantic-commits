@@ -52,7 +52,7 @@ Aliases for those who use [git-extras](https://github.com/tj/git-extras) (will b
 
 You can manually uninstall `git-semantic-commits` by:
 * Going to `~/.gitconfig` and removing the added aliases.
-* Going to `.basrc` and removing the line added to the `$PATH` variable.
+* Removing the line added to the `$PATH` variable from `~/.bashrc`.
 
 ## How to contribute
 Open a pull request/issue or fork this repo and submit your changes via a pull request.
